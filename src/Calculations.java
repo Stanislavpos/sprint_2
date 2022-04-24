@@ -24,7 +24,7 @@ public class Calculations {
             int sumBadIncome = 0;
             for (int i = 0; i < e.getValue().size(); i++) {
                 MonthlyReport month = e.getValue().get(i);
-                int sum = month.getQuantity() * month.getSumOfOne();
+                int sum = month.getQuantity() * month.getSum();
                 if (!month.expenseOrIncome() && sum > sumIncome) {
                     sumIncome = sum;
                     nameIncome = month.getItemName();
@@ -35,7 +35,7 @@ public class Calculations {
             }
             System.out.println(mapMonth.get(monthIncome));
             System.out.println("Cамый прибыльный товар " + sumIncome + " " + nameIncome);
-            System.out.println("Cамый убыточный товар  " + sumBadIncome + " " + nameBadIncome);
+            System.out.println("Cамый убыточный товар " + sumBadIncome + " " + nameBadIncome);
         }
     }
 
@@ -70,8 +70,8 @@ public class Calculations {
                 badIncome = 0;
             }
         }
-        System.out.println("Средний  расход " + badIncomeSum / (yearlyReports.size() / 2));
-        System.out.println("Средний  доход " + incomeSum / (yearlyReports.size() / 2));
+        System.out.println("Средний расход " + badIncomeSum / (yearlyReports.size() / 2));
+        System.out.println("Средний доход " + incomeSum / (yearlyReports.size() / 2));
     }
 
     public void compareReports() {
@@ -85,7 +85,7 @@ public class Calculations {
             int badIncome = 0;
             for (int i = 0; i < e.getValue().size(); i++) {
                 MonthlyReport monthlyReport = e.getValue().get(i);
-                int count = monthlyReport.getSumOfOne() * monthlyReport.getQuantity();
+                int count = monthlyReport.getSum() * monthlyReport.getQuantity();
                 if (monthlyReport.expenseOrIncome()) {
                     badIncome += count;
                 } else {
@@ -130,5 +130,4 @@ public class Calculations {
         monthMap.put(12, "Декабрь");
         return monthMap;
     }
-
 }

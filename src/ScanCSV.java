@@ -31,6 +31,7 @@ public class ScanCSV {
         try { //
             fileBufferedReader = new BufferedReader(new FileReader(file));
             String fileLine = fileBufferedReader.readLine();
+
             while ((fileLine = fileBufferedReader.readLine()) != null) { // если строка не пустая
                 String[] array = fileLine.split(","); // разделяем значения
                 yearlyReports.add(new YearlyReport(Integer.parseInt(array[0]),
@@ -65,6 +66,7 @@ public class ScanCSV {
                 fileBufferedReader = new BufferedReader(new FileReader(file));
                 String fileLine = fileBufferedReader.readLine();
                 ArrayList<MonthlyReport> monthList = new ArrayList<>();
+
                 // читаем файл по строкам с разделителем, заносим в список
                 while ((fileLine = fileBufferedReader.readLine()) != null) {
                     String[] array = fileLine.split(",");
@@ -82,7 +84,6 @@ public class ScanCSV {
                         e.printStackTrace();
                     }
                 }
-
             }
         }
         readMonthFile = true;

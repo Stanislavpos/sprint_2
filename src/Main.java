@@ -36,11 +36,8 @@ public class Main {
                     System.out.println("Не верная команда");
                     break;
             }
-
         }
-
     }
-
     private static void printInfo() {
         System.out.println("1 - Считать все месячные отчёты");
         System.out.println("2 - Считать годовой отчёт");
